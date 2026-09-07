@@ -8,9 +8,6 @@ FROM base AS deps
 RUN apk add --no-cache libc6-compat
 COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
 
-# Needed due to a dependency issue in nitro@3.0.260610-beta
-COPY patches/ ./patches/
-
 RUN pnpm install --frozen-lockfile
 
 # Rebuild the source code only when needed
