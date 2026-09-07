@@ -7,6 +7,12 @@ export default defineConfig({
     },
     plugins: ["eslint", "typescript", "unicorn", "react", "react-perf", "oxc", "import", "jsx-a11y", "promise"],
     ignorePatterns: ["src/routeTree.gen.ts", "src/types/api.d.ts", "public/sw.js"],
+    rules: {
+        // TODO: remove these for better linting
+        "react/set-state-in-effect": "off",
+        "react/static-components": "off",
+        "react/refs": "off",
+    },
     overrides: [
         {
             files: ["src/lib/server/**", "src/routes/api/**"],

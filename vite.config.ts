@@ -1,8 +1,7 @@
 import { resolve } from "node:path";
 
 import { tanstackStart } from "@tanstack/react-start/plugin/vite";
-import viteReact, { reactCompilerPreset } from "@vitejs/plugin-react";
-import babel from "@rolldown/plugin-babel";
+import react from "@vitejs/plugin-react";
 import { nitro } from "nitro/vite";
 import { serwist } from "@serwist/vite";
 import { defineConfig } from "vite";
@@ -19,8 +18,7 @@ export default defineConfig({
     plugins: [
         tanstackStart(),
         nitro(),
-        viteReact(),
-        babel({ presets: [reactCompilerPreset()] }),
+        react({ compiler: true }),
         serwist({
             swSrc: "src/sw.ts",
             swDest: resolve(nitroPublicDir, "sw.js"),
