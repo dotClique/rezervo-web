@@ -52,4 +52,4 @@ jobs:
                   tags: ${{ steps.meta.outputs.tags }}
                   labels: ${{ steps.meta.outputs.labels }}
                   build-args: |
-                      VITE_CONFIG_HOST=https://api.rezervo.no
+                      VITE_CONFIG_HOST=https://rezervo-api.dotclique.com

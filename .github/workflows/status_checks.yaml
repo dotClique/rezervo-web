@@ -75,7 +75,7 @@ jobs:
             - name: Check generated API types are up to date
               run: pnpm run check:api
               env:
-                  CONFIG_HOST: https://api.rezervo.no
+                  CONFIG_HOST: https://rezervo-api.dotclique.com
 
     build:
         name: Build
