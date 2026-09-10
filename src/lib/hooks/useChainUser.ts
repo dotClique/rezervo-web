@@ -4,7 +4,7 @@ import { $api } from "@/lib/api/client";
 import { useUser } from "@/lib/hooks/useUser";
 import { useUserChainConfigs } from "@/lib/hooks/useUserChainConfigs";
 import { useUserConfig } from "@/lib/hooks/useUserConfig";
-import { ChainUserPayload, ChainUserTotpPayload } from "@/types/openapi";
+import { ChainUserPayload } from "@/types/openapi";
 
 export function useChainUser(chainIdentifier: string) {
     const { isAuthenticated } = useUser();
@@ -35,9 +35,6 @@ export function useChainUser(chainIdentifier: string) {
     const destroyChainUserMutation = $api.useMutation("delete", "/{chain_identifier}/user", {
         onSuccess: dependantMutations,
     });
-    const putChainUserTotpMutation = $api.useMutation("put", "/{chain_identifier}/user/totp", {
-        onSuccess: dependantMutations,
-    });
 
     return {
         chainUser: chainUserData,
@@ -47,8 +44,5 @@ export function useChainUser(chainIdentifier: string) {
             putChainUserMutation.mutateAsync({ ...chainUserInit, body: chainUser }),
         destroyChainUser: () => destroyChainUserMutation.mutateAsync(chainUserInit),
         putChainUserIsMutating: putChainUserMutation.isPending,
-        putChainUserTotp: (totp: ChainUserTotpPayload) =>
-            putChainUserTotpMutation.mutateAsync({ ...chainUserInit, body: totp }),
-        putChainUserTotpIsMutating: putChainUserTotpMutation.isPending,
     };
 }

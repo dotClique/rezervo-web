@@ -18,7 +18,6 @@ export type ClassConfig = OpenApi["Class"];
 export type ChainConfig = OpenApi["ChainConfig"];
 export type ChainConfigPayload = OpenApi["BaseChainConfig"];
 export type ChainUserPayload = OpenApi["ChainUserCredentials"];
-export type ChainUserTotpPayload = OpenApi["ChainUserTOTPPayload"];
 export type HourAndMinute = OpenApi["HourAndMinute"];
 export type AllowedTimeWindow = OpenApi["AllowedTimeWindowConfig"];
 export type NotificationsConfig = OpenApi["Notifications"];
